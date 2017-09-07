@@ -1,8 +1,9 @@
 django-drf-angular-starter-project
-====
-
-- 1. Clone it
-- 2. Create virtualenv
-- 3. Install requirements.txt
-- 4. Run migrate command
-- 5. Runserver and play!
+===
+- Clone it
+- Create virtualenv
+- Install requirements.txt
+- Run migrate command
+- Create superuser
+- Runserver and play!
+- While login provide the current username/pass. We don't show error messages as all users of this app are adults :-)
