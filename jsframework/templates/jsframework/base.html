@@ -10,10 +10,21 @@
     </head>
     <body>
 
+        <p style="margin: 30px auto; text-align: center; padding: 20px; font-size: 20px;">
+            {% if user.is_authenticated %}
+                You are logged in as {{ user.email }}, <a href="{% url 'jsframework:logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'jsframework:login' %}">Login</a>
+            {% endif %}
+        </p>
+
         <div ui-view></div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-resource.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-cookies.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-sanitize.js"></script>
         <script src="{{STATIC_URL}}/js/main.js"></script>
     </body>
 </html>

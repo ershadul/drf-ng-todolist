@@ -1,6 +1,9 @@
 
 var app = angular.module('drf-angular', [
-	'ui.router'
+	'ui.router',
+	'ngCookies',
+  'ngResource',
+  'ngSanitize'
 ]);
 
 app.constant('BASE_URL', 'http://localhost:8000/api/todos/');
@@ -54,8 +57,11 @@ app.controller('MainCtrl', function($scope, Todos, $state){
 	});
 });
 
+app.config(function($stateProvider, $urlRouterProvider, $httpProvider){
 
-app.config(function($stateProvider, $urlRouterProvider){
+	$httpProvider.defaults.xsrfCookieName = 'csrftoken';
+	$httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+	
 	$stateProvider
 			.state('home', {
 					url: '/',
@@ -66,7 +72,7 @@ app.config(function($stateProvider, $urlRouterProvider){
 					url: "/add",
 					templateUrl: 'static/templates/add_todo.html',
 					controller: 'MainCtrl'
-			});
+});
 
 	$urlRouterProvider.otherwise('/');
 });
