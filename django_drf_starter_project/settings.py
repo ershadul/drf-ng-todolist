@@ -90,3 +90,5 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     )
 }
+
+SESSION_SAVE_EVERY_REQUEST = True
